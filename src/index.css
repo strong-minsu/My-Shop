@@ -1,13 +1,214 @@
-body {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   css 초기화 코드
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* apply a natural box layout model to all elements, but allowing components to change */
+/* 모든 요소에 상자 레이아웃 모델 적용, 그러나 구성요소 변경 허용 */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button:focus {
+  outline: 0;
+}
+
+/* header */
+header {
+  grid-column: span 2;
+  padding: 1vw;
+  text-align: center;
+  background-color: white;
+}
+.header__container {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+}
+header .title {
+  position: relative;
+  font-size: 3rem;
+  line-height: 4rem;
+  font-weight: bold;
+  color: rgb(27, 27, 27);
+}
+
+/* 움직이는 대괄호 */
+header .title:before,
+header .title:after {
+  content: "[";
+  display: inline-block;
+  color: rgb(241, 70, 40);
+  position: relative;
+  transition: all 1s ease;
+}
+
+header .title:after {
+  content: "]";
+}
+header .title:hover:before {
+  transform: translateX(-9px);
+}
+header .title:hover:after {
+  transform: translateX(9px);
+}
+
+/* 타이틀 설명 */
+header .subtitle {
+  margin-top: 24px;
+  font-size: 22px;
+  line-height: 28px;
+  margin: 16px 0px 0px;
+  color: rgb(77, 76, 76);
+  font-weight: 500;
+  vertical-align: baseline;
+}
+header .subtitle__red {
+  color: rgb(241, 70, 40);
+}
+
+/* footer */
+footer {
+  border-top: 1px solid #c4c4c4;
+  grid-column: span 2;
+  padding: 20px;
+  padding-left: 0px;
+  text-align: right;
+  font-size: 0.6em;
+  vertical-align: middle;
 }
