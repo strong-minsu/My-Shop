@@ -4,6 +4,9 @@ import Laptop from "../images/Laptop.jpg";
 import Moniter from "../images/Moniter.jpg";
 import Keybord from "../images/Keybord.jpg";
 import Mouse from "../images/Mouse.jpg";
+import Notebook from "../images/Notebook.jpg";
+import Glasses from "../images/Glasses.jpg";
+import Headset from "../images/Headset.jpg";
 
 //context provider..! <- 상태 변화를 알려준다
 import { useState } from "react";
@@ -37,6 +40,27 @@ export default function AppStateProvider({ children }) {
       desc: "Input tool! It's a noiseless mouse.",
       price: "10",
       image: Mouse,
+    },
+    {
+      id: "gnum-05",
+      title: "Notebook",
+      desc: "It's the notebook to write down ideas that come to mind.",
+      price: "3",
+      image: Notebook,
+    },
+    {
+      id: "gnum-06",
+      title: "Glasses",
+      desc: "This is a glasses with blue light blocking.",
+      price: "15",
+      image: Glasses,
+    },
+    {
+      id: "gnum-07",
+      title: "Headset",
+      desc: "This is a Bluetooth headset with noise cancelling function.",
+      price: "30",
+      image: Headset,
     },
   ]);
 
