@@ -10,6 +10,7 @@ import Headset from "../images/Headset.jpg";
 
 //context provider..! <- 상태 변화를 알려준다
 import { useState } from "react";
+import { useCallback } from "react";
 
 export default function AppStateProvider({ children }) {
   const [goods] = useState([
@@ -64,8 +65,35 @@ export default function AppStateProvider({ children }) {
     },
   ]);
 
+  //order 쇼핑카트 담긴 주문 목록 관리
+  const [orders, setOrders] = useState([]);
+
+  //쇼핑카트에 add, remove, all remove  하는 기능 추가
+
+  //추가하는 기능 (상품에 달려있는 쇼핑카트 버튼을 누르면, 상품 id가 전달됨)
+  const addToShoppingCart = useCallback((id) => {
+    setOrders((orders) => {
+      const finded = orders.find((order) => order.id === id);
+      //finded된 상품을 처음 주문 받는 경우
+      if (finded === undefined) {
+        return [...orders, { id, quantity: 1 }];
+      } else {
+        return orders.map((order) => {
+          if (order.id === id) {
+            return {
+              id,
+              quantity: order.quantity + 1,
+            };
+          } else {
+            return order;
+          }
+        });
+      }
+    });
+  }, []);
+
   return (
-    <AppStateContext.Provider value={{ goods }}>
+    <AppStateContext.Provider value={{ goods, orders, addToShoppingCart }}>
       {children}
     </AppStateContext.Provider>
   );

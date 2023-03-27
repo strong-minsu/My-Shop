@@ -322,6 +322,7 @@ hr {
 .good .good__image {
   display: flex;
   justify-content: center;
+  padding-bottom: 0.8rem;
 }
 
 .good .good__body .good__title {
@@ -434,6 +435,19 @@ hr {
   color: var(--secondary);
 }
 
+.btn.btn--link {
+  background: transparent;
+  border-color: transparent;
+  color: var(--primary);
+}
+
+.btn.btn--link:focus,
+.btn.btn--link:hover,
+.btn.btn--link:active,
+.btn.btn--link.active {
+  color: var(--secondary);
+}
+
 /* 쇼핑카트 Icon */
 .material-symbols-outlined {
   font-weight: normal;
@@ -446,4 +460,124 @@ hr {
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+}
+
+/* Orders */
+
+.order {
+  border: 0.05rem solid var(--gray);
+  border-radius: 6px;
+  display: flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  background: #fff;
+}
+
+.order .total {
+  flex: 0 0 auto;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.order .order-nav {
+  flex: 0 0 auto;
+}
+
+.order .body {
+  flex: 1 1 auto;
+  padding: 0.6rem 0.8rem;
+  padding-bottom: 0;
+}
+
+.order .ptitle {
+  text-align: center;
+}
+.order p {
+  font-size: medium;
+}
+
+/* item */
+
+.item {
+  align-content: space-between;
+  align-items: center;
+  display: flex;
+  display: -ms-flexbox;
+}
+
+.item .action {
+  flex: 0 0 auto;
+}
+
+.item .action .price {
+  background: #fff;
+  display: inline-block;
+  line-height: 1rem;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  height: 2rem;
+  padding: 0.45rem 0.6rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--primary);
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.item img {
+  margin: 0.4rem 0.4rem 0.4rem 0.2rem;
+  border-radius: 4px;
+  max-width: 30px;
+}
+
+.item .content {
+  flex: 1 1 auto;
+}
+
+.item .title {
+  flex: 1 1 auto;
+  line-height: 1rem;
+  font-size: 0.9rem;
+}
+
+.item .sold-out {
+  flex: 1 1 auto;
+  line-height: 1rem;
+  font-size: 0.9rem;
+  color: var(--red-color);
+}
+
+.item.item-centered .title,
+.item.item-centered .item-subtitle {
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* empty (쇼핑카트에 아무것도 없는 경우) */
+
+.empty {
+  background-color: #fff;
+  border: 0.05rem solid #fff;
+  color: var(--primary-alpha);
+  border-radius: 6px;
+  padding: 3.2rem 1.6rem;
+  text-align: center;
+}
+
+.empty .title,
+.empty .subtitle {
+  margin: 0.8rem auto;
+}
+
+.empty .subtitle {
+  font-size: 0.9rem;
 }

@@ -1,13 +1,17 @@
 import useGoods from "../hooks/useGoods";
+import useActions from "../hooks/useActions";
 
 export default function Goods() {
   const goods = useGoods();
+  const { addToShoppingCart } = useActions();
   return (
     <main>
       <div className="goods">
         {goods.map((good) => {
           const { id, title, desc, price, image } = good;
-
+          const click = () => {
+            addToShoppingCart(id);
+          };
           return (
             <div className="good" key={id}>
               <div className="good__image" style={{ padding: "20px 0 33px 0" }}>
@@ -26,7 +30,7 @@ export default function Goods() {
                 <div className="good__title">
                   <div
                     className="btn btn--primary float--right"
-                    // onClick={click}
+                    onClick={click}
                   >
                     <i className="material-symbols-outlined">
                       add_shopping_cart
