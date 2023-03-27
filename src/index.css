@@ -143,6 +143,53 @@ button:focus {
   outline: 0;
 }
 
+:root {
+  --primary: rgb(31, 66, 53);
+  --primary-alpha: rgba(0, 97, 32, 0.8);
+  --secondary: rgba(240, 79, 50, 0.904);
+  --selection: rgba(255, 126, 103, 0.801);
+  --secondary-alpha: rgba(1, 148, 74, 0.5);
+  --gray: #f6f6f6;
+  --gray-alpha: rgba(246, 246, 246, 0.9);
+  --black-color: #222223;
+  --red-color: rgb(241, 70, 40);
+}
+
+::selection {
+  background: var(--selection);
+}
+
+::-moz-selection {
+  background: var(--selection);
+}
+
+body,
+button {
+  font-family: "Hahmlet", serif;
+  font-size: 1.4rem;
+  background: var(--gray);
+  color: var(--primary);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1000px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
 /* header */
 header {
   grid-column: span 2;
@@ -165,7 +212,7 @@ header .title {
   font-size: 3rem;
   line-height: 4rem;
   font-weight: bold;
-  color: rgb(27, 27, 27);
+  color: var(--primary);
 }
 
 /* 움직이는 대괄호 */
@@ -202,6 +249,15 @@ header .subtitle__red {
   color: rgb(241, 70, 40);
 }
 
+aside {
+  flex: 2;
+  padding: 0.4rem;
+}
+
+main {
+  padding: 0.4rem;
+}
+
 /* footer */
 footer {
   border-top: 1px solid #c4c4c4;
@@ -211,4 +267,183 @@ footer {
   text-align: right;
   font-size: 0.6em;
   vertical-align: middle;
+}
+
+h1 {
+  margin-bottom: 1em;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid var(--gray);
+  margin-bottom: 20px;
+}
+
+/* 왼쪽 정렬, 오른쪽 정렬 */
+.float--right {
+  float: right !important;
+  padding: 0.8rem;
+}
+.float--left {
+  float: left !important;
+  padding: 0.8rem;
+}
+
+/* goods */
+.goods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  grid-gap: 20px;
+}
+
+.good {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 10px;
+  border: 0.01rem solid #fff;
+  background: #fff;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.good .good__body p {
+  padding: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.good .good__image {
+  display: flex;
+  justify-content: center;
+}
+
+.good .good__body .good__title {
+  padding: 0.8rem;
+  padding-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  font-size: 1.3rem;
+  color: var(--secondary);
+}
+
+.good .good__body .good__price {
+  padding-top: 0.1rem;
+  width: 100%;
+  color: var(--primary-alpha);
+}
+
+.good .good__body .good__desc {
+  font-size: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+/* goods이미지에 마우스 hover 효과 */
+.good__edit {
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.good__edit:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* Button */
+
+.btn {
+  background: #fff;
+  border: 0.05rem solid var(--secondary);
+  border-radius: 6px;
+  color: var(--secondary);
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1rem;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  user-select: none;
+  vertical-align: middle;
+
+  white-space: nowrap;
+  font-size: 0.9rem;
+  height: 2rem;
+  padding: 0.45rem 0.6rem;
+}
+
+.btn:focus,
+.btn:hover {
+  background: var(--gray);
+  border-color: var(--primary);
+  text-decoration: none;
+}
+
+.btn[disabled],
+.btn:disabled,
+.btn.disabled {
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btn.btn--primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.btn.btn--primary:focus,
+.btn.btn--primary:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: var(--primary);
+}
+
+.btn.btn--primary:active,
+.btn.btn--primary.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--secondary);
+}
+
+.btn.btn--secondary {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: var(--primary);
+}
+
+.btn.btn--secondary:focus,
+.btn.btn--secondary:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--gray);
+}
+
+.btn.btn--secondary:active,
+.btn.btn--secondary.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--secondary);
+}
+
+/* 쇼핑카트 Icon */
+.material-symbols-outlined {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
 }

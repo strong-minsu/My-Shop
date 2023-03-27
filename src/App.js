@@ -9,8 +9,10 @@ function App() {
   return (
     <AppStateProvider>
       <Header />
-      <Goods />
-      <Orders />
+      <div className="container">
+        <Goods />
+        <Orders />
+      </div>
       <Footer />
     </AppStateProvider>
   );
