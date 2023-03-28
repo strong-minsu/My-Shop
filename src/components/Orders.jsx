@@ -1,9 +1,23 @@
+import { useMemo } from "react";
+import useActions from "../hooks/useActions";
 import useGoods from "../hooks/useGoods";
 import useOrders from "../hooks/useOrders";
 
 export default function Orders() {
   const orders = useOrders();
   const goods = useGoods();
+  const { remove, removeAll } = useActions();
+
+  //total price
+  const totalPrice = useMemo(() => {
+    return orders
+      .map((order) => {
+        const { id, quantity } = order;
+        const good = goods.find((g) => g.id === id);
+        return good.price * quantity;
+      })
+      .reduce((l, r) => l + r, 0);
+  }, [orders, goods]);
   //쇼핑카트에 담아둔 제품이 하나도 없을 경우
   if (orders.length === 0) {
     return (
@@ -31,9 +45,9 @@ export default function Orders() {
           {orders.map((order) => {
             const { id } = order;
             const good = goods.find((p) => p.id === id);
-            // const click = () => {
-            //   remove(id);
-            // };
+            const click = () => {
+              remove(id);
+            };
             return (
               <div className="item" key={id}>
                 <div className="img">
@@ -46,10 +60,9 @@ export default function Orders() {
                 </div>
                 <div className="action">
                   <p className="price">$ {good.price * order.quantity}</p>
-                  <button
-                    className="btn btn--link"
-                    // onClick={click}
-                  >
+
+                  {/* remove goods */}
+                  <button className="btn btn--link" onClick={click}>
                     <i class="material-symbols-outlined">
                       remove_shopping_cart
                     </i>
@@ -58,6 +71,28 @@ export default function Orders() {
               </div>
             );
           })}
+        </div>
+
+        {/* total price */}
+        <div className="total">
+          <hr />
+          <div className="item">
+            <div className="content">Total</div>
+            <div className="action">
+              <div className="price">$ {totalPrice}</div>
+            </div>
+
+            {/* remove all goods */}
+            <button className="btn btn--link" onClick={removeAll}>
+              <i className="material-symbols-outlined">delete</i>
+            </button>
+          </div>
+          <button
+            className="btn btn--secondary"
+            style={{ width: "100%", marginTop: 10 }}
+          >
+            Checkout
+          </button>
         </div>
       </div>
     </aside>
