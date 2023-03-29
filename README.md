@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# 🛒 Great Developeer Goods Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 💻 프로젝트 소개
 
-## Available Scripts
+React JS의 Context API와 Hook을 이용한 간단한 쇼핑몰 기능 구현
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 💻 개발 환경
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+React 프로젝트 이용
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- nvm : 1.1.9.
+- npm : 6.14.12
+- react : ^18.2.0
+- react-dom : ^18.2.0
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💻 주요 기능
 
-### `npm run build`
+1.  상품 데이터 보이기
+    - context, provider로 데이터 관리
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. 상품 쇼핑카트에 담기
+   - context, provider에서 useSteate와 hook이용
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
+3. 쇼핑카트에 담은 상품 보이기
+   - addToShoppingCart : (provider) useCallback이용 orders map 돌면서 상품 return
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. 쇼핑카트에 담긴 상품 한 개 삭제하기
+   - remove : (provider) useCallback이용 setOrders에서 map돌면서 새로운 orders return
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. 쇼핑카트에 담긴 상품 전부 삭제하기
+   - removeAll : (provider) useCallback이용 setOrders([])이용, orders clear..(?)
 
-## Learn More
+<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. 쇼핑카트에 담긴 상품 가격 확인
+   - good.price \* order.quantity 로 상품 종류별로 가격 확인
+   - useMemo를 통해 orders map돌면서 total 가격 return
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
 
-### Code Splitting
+7. Checkout 버튼
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br>
 
-### Analyzing the Bundle Size
+#
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 📌 주요 개념
 
-### Making a Progressive Web App
+#### **1. Context**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+관련 React 공식 문서 : [Context](https://ko.reactjs.org/docs/context.html)
+<br>
 
-### Advanced Configuration
+> 쇼핑몰에 보여질 상품 데이터를 context를 이용하여 component들에게 전달하는 방법으로 관리
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### **2. Hook**
 
-### Deployment
+관련 React 공식 문서 : [Hook](https://ko.reactjs.org/docs/hooks-intro.html)
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+> 상품 데이터(goods), 쇼핑카트 상품 데이터(order), 상품 데이터를 이용하는 기능 (쇼핑 카트에 상품 담기, 쇼핑 카트 상품 삭제, 쇼핑카트 상품 전부 삭제)에서 useContext()를 이용한 Hook 사용
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 💻 실행 화면
+
+[DEMO](https://benevolent-crepe-ae2832.netlify.app)
+<br>
+
+![DGshop](https://user-images.githubusercontent.com/95047661/228560945-5719e008-1099-4b31-bfb7-9276a7623ce6.png)
