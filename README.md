@@ -1,6 +1,6 @@
 # 🛒 Great Developeer Goods Shop
 
-## 💻 프로젝트 소개
+## 💻 소개
 
 React JS의 Context API와 Hook을 이용한 간단한 쇼핑몰 기능 구현
 
